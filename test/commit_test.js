@@ -96,4 +96,15 @@ describe('commit', function () {
             .expect(['commit', '-m', 'Commit', '--no-status', 'test.txt'])
             .run(done);
     });
+
+    it('should use the -a to get all changed files', function (done) {
+        var options = {
+            all: true
+        };
+
+        new Test(command, options)
+            .expect(['commit', '-a','-m', 'Commit'])
+            .run(done);
+    });
+
 });
